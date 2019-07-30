@@ -1,7 +1,7 @@
 def same_chars(s1, s2):
     """
     Space: O(n)
-    Time: O(n )
+    Time: O(n)
     :param s1: String1
     :param s2: String2
     :return: Are the strings permutations of each other?
