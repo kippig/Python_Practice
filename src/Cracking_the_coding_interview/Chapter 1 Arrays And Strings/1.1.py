@@ -10,7 +10,8 @@ def unique(arr):
 
 def unique_2(arr):
     """Without additional data structures or hash map
-    Space: 1 """
+    Space: 1
+    Time: O(n log n) """
     arr = sorted(arr)
     for i in range(len(arr) - 1):
         if arr[i] == arr[i+1]:
