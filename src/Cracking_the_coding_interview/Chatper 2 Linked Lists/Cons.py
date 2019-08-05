@@ -37,5 +37,43 @@ class Cons:
 
         return helper(self, fn)
 
+    def leaf(self):
+        if self.tail is None:
+            return self.tail
+        else:
+            return self.tail.leaf()
+
+    def reverse(self):
+        r = None
+        p1 = self
+        while p1 is not None:
+            r = Cons(p1.head, r)
+            p1 = p1.tail
+        return r
+
+    def equals(self, other):
+        if self.tail is None and other.tail is None:
+            return True
+        elif self.tail is None or other.tail is None:
+            return False
+        elif self.head == other.head:
+            return self.tail.equals(other.tail)
+        else:
+            return False
+
+    def __len__(self):
+        if self.tail is None:
+            return 1
+        else:
+            return len(self.tail) + 1
+
+    def drop(self, num):
+        for i in range(num):
+            if self.tail is None:
+                return None
+            else:
+                self = self.tail
+        return self
+
     def __repr__(self):
         return "List{}".format(self.to_array())

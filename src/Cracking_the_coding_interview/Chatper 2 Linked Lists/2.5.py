@@ -1,6 +1,5 @@
 from Cons import Cons
 
-
 def sum_lists(l1, l2):
     """
     Space: O(n) for the sum_list
@@ -21,7 +20,7 @@ def sum_lists(l1, l2):
     carryover = 0
     while True:
         next_val = (l1.head + l2.head + carryover) % 10
-        carryover = (l1.head + l2.head + carryover) - next_val
+        carryover = ((l1.head + l2.head + carryover) - next_val)/10
         sum_list_tail.head = next_val
 
         if l1.tail is None and l2.tail is None:
@@ -33,6 +32,18 @@ def sum_lists(l1, l2):
     return sum_list
 
 
-test = [Cons(1, Cons(2, Cons(2, Cons(1, None)))),
-        Cons(1, Cons(2, Cons(3, Cons(4, Cons(3, Cons(5, Cons(2, Cons(9, None))))))))]
+def sum_lists2(l1, l2):
+    """
+    Space: O(n)
+    Time: O(n)
+    :param l1: list in the format List(1,2,3) = 3 + 20 + 100
+    :param l2: same as above
+    :return: list in the same format and value of  the sum of l1 + l2
+    """
+    return sum_lists(l1.reverse(), l2.reverse()).reverse()
+
+
+test = [Cons(8, Cons(2, Cons(2, Cons(1, None)))),
+        Cons(7, Cons(2, Cons(3, Cons(4, Cons(3, Cons(5, Cons(2, Cons(9, None))))))))]
 print(test, sum_lists(*test))
+print(test, sum_lists2(*test))
