@@ -2,7 +2,7 @@ from Cons import Cons
 
 
 def del_middle_node(llist, node):
-    """
+    """ Very wrong solution, you only get node, not llist
     Space: O(1)
     Time: O(n)
     :param llist:

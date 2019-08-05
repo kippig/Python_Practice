@@ -15,7 +15,7 @@ def kth_to_last(llist, k=1):
             break
         else:
             p1 = p1.tail
-    else:
+    else: # no break
         p2 = llist
         while p1.tail is not None:
             p1 = p1.tail
