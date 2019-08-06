@@ -25,7 +25,10 @@ class Stack:
             self.min = value
 
     def peek(self):
-        return self.body.head
+        if self.length > 0:
+            return self.body.head
+        else:
+            return None
 
     def is_empty(self):
         return self.length == 0
