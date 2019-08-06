@@ -41,5 +41,11 @@ bob = range(10)
 for x in bob:
     s.push(x)
 print(s)
+s.pop()
+s.pop()
+s.push(4)
+s.pop()
+s.pop()
+print(s)
 
 
