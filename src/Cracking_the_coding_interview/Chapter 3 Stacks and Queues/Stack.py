@@ -7,7 +7,7 @@ class Stack:
     def __init__(self):
         self.length = 0
         self.body = None
-        self.min = None
+        self.min = Stack()
 
     def __len__(self):
         return self.length
@@ -15,14 +15,18 @@ class Stack:
     def pop(self):
         if self.length > 0:
             val, self.body, self.length = self.body.head, self.body.tail, self.length - 1
+            if val == self.min.peek():
+                self.min.pop()
             return val
         return None
 
     def push(self, value):
         self.body = Cons(value, self.body)
         self.length += 1
-        if self.min is None or value <= self.min:
-            self.min = value
+        if self.min.is_empty():
+            self.min.push(value)
+        elif self.min.peek() >= value:
+            self.min.push(value)
 
     def peek(self):
         if self.length > 0:
@@ -34,7 +38,7 @@ class Stack:
         return self.length == 0
 
     def min(self):
-        return self.min
+        return self.min.peek()
 
     def __repr__(self):
         return '{}'.format(self.body.__repr__())

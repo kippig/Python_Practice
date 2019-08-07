@@ -18,7 +18,12 @@ def del_middle_node(llist, node):
     return llist
 
 
+def delete_middle_node(node):
+    node.head = node.tail.head
+    node.tail = node.tail.tail
+
+
 test = Cons(1, Cons(2, Cons(3, Cons(4, Cons(5, Cons(6, Cons(7, Cons(8, None))))))))
 nodes = [test.tail.tail.tail.tail, test.tail.tail, test.tail.tail.tail]
-for node in nodes:
-    print(node, del_middle_node(test, nodes))
+delete_middle_node(nodes[0])
+print(test)
