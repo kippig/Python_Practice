@@ -1,5 +1,6 @@
 from Cons import Cons
 
+
 def sum_lists(l1, l2):
     """
     Space: O(n) for the sum_list
