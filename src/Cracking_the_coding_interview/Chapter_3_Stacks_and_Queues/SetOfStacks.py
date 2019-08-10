@@ -1,4 +1,6 @@
-from Stack import Stack
+import sys
+sys.path.insert(0, "/Users/kippy/PycharmProjects/Python_Practice/src/Cracking_the_coding_interview/")
+from DataStructures.Stack import Stack
 
 
 class SetOfStacks:

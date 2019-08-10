@@ -1,13 +1,14 @@
-from Cons import Cons
+from .Cons import Cons
 
 
 class Stack:
     # Cons Based Stack
 
-    def __init__(self):
+    def __init__(self, minimum=False):
         self.length = 0
         self.body = None
-        self.min = Stack()
+        if minimum:
+            self.minimum = Stack()
 
     def __len__(self):
         return self.length
@@ -15,18 +16,20 @@ class Stack:
     def pop(self):
         if self.length > 0:
             val, self.body, self.length = self.body.head, self.body.tail, self.length - 1
-            if val == self.min.peek():
-                self.min.pop()
+            if hasattr(self, 'minimum'):
+                if val == self.minimum.peek():
+                    self.minimum.pop()
             return val
         return None
 
     def push(self, value):
         self.body = Cons(value, self.body)
         self.length += 1
-        if self.min.is_empty():
-            self.min.push(value)
-        elif self.min.peek() >= value:
-            self.min.push(value)
+        if hasattr(self, 'minimum'):
+            if self.minimum.is_empty():
+                self.minimum.push(value)
+            elif self.minimum.peek() >= value:
+                self.minimum.push(value)
 
     def peek(self):
         if self.length > 0:
@@ -38,7 +41,8 @@ class Stack:
         return self.length == 0
 
     def min(self):
-        return self.min.peek()
+        if hasattr(self, 'minimum'):
+            return self.minimum.peek()
 
     def __repr__(self):
         return '{}'.format(self.body.__repr__())

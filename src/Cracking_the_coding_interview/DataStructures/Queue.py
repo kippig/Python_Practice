@@ -1,5 +1,4 @@
-from Stack import Stack
-
+from .Stack import Stack
 
 class Queue:
 
@@ -11,6 +10,12 @@ class Queue:
     def add(self, item):
         self.inStack.push(item)
         self.length += 1
+
+    def enqueue(self, item):
+        self.add(item)
+
+    def dequeue(self):
+        return self.remove()
 
     def remove(self):
         if self.length > 0:

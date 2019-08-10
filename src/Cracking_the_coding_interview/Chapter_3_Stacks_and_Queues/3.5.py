@@ -1,4 +1,6 @@
-from Stack import Stack
+import sys
+sys.path.insert(0, "/Users/kippy/PycharmProjects/Python_Practice/src/Cracking_the_coding_interview/")
+from DataStructures.Stack import Stack
 
 
 def sort_stack(stack):
@@ -22,7 +24,7 @@ def sort_stack(stack):
 
         while not stack.is_empty():
             s1, s2 = stack.peek(), buffer.peek()
-            if s1 < s2:
+            if s2 is not None and s1 < s2:
                 swap(buffer, stack)
             buffer.push(stack.pop())
 
@@ -31,7 +33,7 @@ def sort_stack(stack):
         while not buffer.is_empty():
             a = buffer.pop()
             stack.push(a)
-            if last < a and last is not None:
+            if last is not None and last < a:
                 not_sorted = True
             last = a
 

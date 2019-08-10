@@ -1,4 +1,6 @@
-from Queue import Queue
+import sys
+sys.path.insert(0, "/Users/kippy/PycharmProjects/Python_Practice/src/Cracking_the_coding_interview/")
+from DataStructures.Queue import Queue
 from datetime import datetime
 
 
@@ -7,7 +9,7 @@ class AnimalShelter:
     Space: O(n*K) where K is categories and n is maximum number in any category
     """
 
-    def __init__(self, categories=None):
+    def __init__(self, categories={}):
         self.types = {x for x in categories}
         self.type_queues = dict()
 
@@ -33,11 +35,16 @@ class AnimalShelter:
             val = self.type_queues[category].peek()
             if val is not None and val[1] < oldest:
                 oldest_cat = category
-        return self.type_queues[oldest_cat].pop()
+        return self.type_queues[oldest_cat].dequeue()[0]
 
     def dequeue_type(self, category):
         """Time: O(1)"""
         if category not in self.types:
             raise Exception("Invalid type please enter one of: {}".format(self.types))
-        return self.type_queues[category].pop()
+        return self.type_queues[category].dequeue()[0]
+
+
+s = AnimalShelter()
+s.enqueue('bob', 'cat')
+print(s.dequeue_type('cat'))
 
