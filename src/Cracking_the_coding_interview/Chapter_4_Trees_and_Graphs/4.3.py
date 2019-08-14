@@ -1,5 +1,5 @@
 import sys
-sys.path.insert(0, "/Users/kippy/PycharmProjects/Python_Practice/src/Cracking_the_coding_interview/")
+sys.path.insert(0, "../../Cracking_the_coding_interview/")
 from DataStructures.Graph import Tree, BST
 from DataStructures.Queue import Queue
 from DataStructures.Cons import Cons
