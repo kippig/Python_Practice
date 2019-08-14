@@ -6,7 +6,7 @@ from datetime import datetime
 
 # this could be optimised with dynamic programming
 def choose_iter(elements, length):
-    for i in xrange(len(elements)):
+    for i in range(len(elements)):
         if length == 1:
             yield (elements[i],)
         else:
@@ -52,7 +52,7 @@ def BST_Sequences(bst):
 
 
 then = datetime.now()
-tree = BST([x for x in range(14)])
+tree = BST([x for x in range(10)])
 print(len(BST_Sequences(tree)))
 print(datetime.now() - then)
 
