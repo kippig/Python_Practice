@@ -3,9 +3,8 @@ from datetime import datetime
 
 class Primes:
     @staticmethod
-    def stream():
+    def stream(limit=15486258):
         # requires scanning the array twice :/
-        limit = 15486258
         array = [True]*(limit+1)
 
         odd = 3
@@ -25,14 +24,14 @@ class Primes:
             i += 2
 
 
-def verify(from_n, *vals):
-    stream = Primes.stream()
+def verify(from_n, frequency=1000,):
+    stream = Primes.stream(limit=from_n + 1)
     for k in range(from_n):
         latest = next(stream)
-        if k % 1000 == 0:
+        if k % frequency == 0:
             print(latest)
 
 
 t = datetime.now()
-verify(1000000)
+verify(100, frequency=1)
 print("Process ran in {}".format(datetime.now()-t))
