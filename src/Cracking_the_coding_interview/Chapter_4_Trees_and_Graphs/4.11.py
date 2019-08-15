@@ -1,6 +1,6 @@
 import sys
 sys.path.insert(0, "../../Cracking_the_coding_interview/")
-from DataStructures.Graph import Tree, BST
+from DataStructures.Graph import BST
 from random import randint
 
 
