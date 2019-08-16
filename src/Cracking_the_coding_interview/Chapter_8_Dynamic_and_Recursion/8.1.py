@@ -10,4 +10,4 @@ def triple_step(steps=10):
     return memo[-1]
 
 
-print(triple_step(5))
+print(triple_step(1000))

@@ -1,7 +1,44 @@
-"""A magic index in an array A[ 0••• n -1] is defined to be an index such that A[ i] = i. Given a sorted array of distinct
-integers, write a method to find a magic index, if one exists, in array A.
-FOLLOW UP
-What if the values are not distinct?"""
+def find_index(arr):
+    """
+    Space: 1
+    Time: O(n) in the worst case (magic index in the middle)
+    Handles duplicate values
+    """
+
+    i, j = 0, len(arr) - 1
+    while True:
+        if i >= len(arr) or j < 0:
+            return False
+
+        if arr[i] == i:
+            return i
+        elif arr[i] > i:
+            i = arr[i]
+        else:
+            i += 1
+
+        if arr[j] == j:
+            return j
+        elif arr[j] < j:
+            j = arr[j]
+        else:
+            j -= 1
 
 
-def
+def find_index2(arr, base=0):
+    """
+    Space: 1
+    Time: O(log n)
+    """
+    if len(arr) == 0:
+        return None
+    i = len(arr)//2
+    if arr[i] < base + i:
+        return find_index2(arr[i+1:], base + i + 1)
+    elif arr[i] > base + i:
+        return find_index2(arr[:i], base)
+    else:
+        return base + i
+
+
+print(find_index2([-2, -1, 0, 3]))

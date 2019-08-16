@@ -9,6 +9,7 @@ def possible_moves(grid, point):
 
 
 def find_path(point: tuple, path, grid):
+    grid[point[0]][point[1]] = False # we have seen this point so it counts as a blocker to other points
     path.append(point)
     moves = possible_moves(grid, point)
     if len(moves) == 0:
@@ -17,6 +18,7 @@ def find_path(point: tuple, path, grid):
     for move in moves:
         if find_path(move, path, grid):
             return True
+
     path.pop()
     return False
 
