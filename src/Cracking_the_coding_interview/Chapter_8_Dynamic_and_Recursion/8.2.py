@@ -1,8 +1,3 @@
-import sys
-sys.path.insert(0, "../../Cracking_the_coding_interview/")
-from DataStructures.Graph import Tree
-
-
 def possible_moves(grid, point):
     row, col = point
     moves = []
@@ -32,7 +27,6 @@ def robot_grid(grid):
     :param grid: an array of squares and blockers
     :return:
     """
-
     if len(grid) == 0 or len(grid[0]) == 0:
         return None
 
