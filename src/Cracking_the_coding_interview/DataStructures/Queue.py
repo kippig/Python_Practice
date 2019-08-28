@@ -2,10 +2,13 @@ from .Stack import Stack
 
 class Queue:
 
-    def __init__(self):
+    def __init__(self, iterable=None):
         self.length = 0
         self.inStack = Stack()
         self.outStack = Stack()
+        if iterable is not None:
+            for item in iterable:
+                self.enqueue(item)
 
     def add(self, item):
         self.inStack.push(item)
@@ -33,6 +36,12 @@ class Queue:
             return self.outStack.peek()
         else:
             return None
+
+    def pop(self):
+        return self.remove()
+
+    def push(self, item):
+        self.enqueue(item)
 
     def is_empty(self):
         return self.length == 0

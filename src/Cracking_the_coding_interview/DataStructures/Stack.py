@@ -4,11 +4,14 @@ from .Cons import Cons
 class Stack:
     # Cons Based Stack
 
-    def __init__(self, minimum=False):
+    def __init__(self, minimum=False, iterable=None):
         self.length = 0
         self.body = None
         if minimum:
             self.minimum = Stack()
+        if iterable is not None:
+            for i in iterable:
+                self.push(i)
 
     def __len__(self):
         return self.length
