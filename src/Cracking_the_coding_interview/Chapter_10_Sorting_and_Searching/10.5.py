@@ -27,4 +27,7 @@ def sparse_search(arr: list, target: str, low=0, high=None):
 
 
 arr = ['at', '', '', '', 'ball', '', '', 'car', '', '', 'dad', '', '']
+arr = ['', '', '', 'dad']
 print(sparse_search(arr, 'dad'))
+
+
