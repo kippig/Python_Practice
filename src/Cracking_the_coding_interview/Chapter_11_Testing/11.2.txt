@@ -1,0 +1,7 @@
+Random Crashes: You are given the source to an application which crashes when it is run. After running it ten times in
+a debugger, you find it never crashes in the same place. The application is single threaded, and uses only the C
+standard library. What programming errors could be causing this crash? H ow would you test each one?
+
+1. perhaps a random value is being set somewhere and triggers a crash later on.
+2. external file dependencies
+3. running out of disk space/ network packets being dropped/ memory running out

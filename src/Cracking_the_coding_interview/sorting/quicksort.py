@@ -1,3 +1,5 @@
+from random import randint
+
 def partition(arr, low, high):
     pivot = arr[low + (high - low)//2]
     while True:
@@ -22,7 +24,11 @@ def quicksort(arr, low=0, high=None):
         quicksort(arr, p+1, high)
 
 
-arr = [6, 7, 3, 1, 5]
-quicksort(arr)
-print(arr)
+wrong = 0
+for i in range(1000):
+    arr = [randint(0, 9) for i in range(randint(1, 10))]
+    quicksort(arr)
+    if not arr == sorted(arr):
+        wrong += 1
+print(wrong/1000)
 
