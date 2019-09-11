@@ -1,0 +1,19 @@
+1, 2, 4, 7, 10, 11, 7, 12, 6, 7, 16, 18, 19
+
+prefix = 1, 2, 4, 7, 10, 11, max = 11
+suffix = 6, 7, 16, 18, 19, min = 6
+middle = 7, 12, min = 7, max = 12
+combine min/max
+min = 6, max = 12
+
+prefix values that need to move is anything above min of 6
+1, 2, 4 remains (can find this with binary search)
+
+suffix values that need to move is anything below 12
+16,18,19 remains (can find this with binary search)
+
+O complexity = prefix + suffix + min,max in middle + find min in prefix, find max in suffix
+             = O(n) + O(n) + O(n) + O(log n) = O(n)
+
+Space-wise, we can do this in O(1)
+

@@ -1,4 +1,3 @@
-import math
 def hourglassSum(arr):
     """Calculates the maximum of a given shape
         :rtype Int representing the maximum of the sum of numbers in all arrangements of the shape"""
@@ -18,7 +17,6 @@ def hourglassSum(arr):
              [False, True, False],
              [True, True, True]]
     reducer = lambda x, y: x+y
-
 
 
     maximum = float('-inf')

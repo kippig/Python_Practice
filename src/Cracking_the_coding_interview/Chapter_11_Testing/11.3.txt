@@ -1,0 +1,11 @@
+ChessTest :We have the following method used in a chess game:
+    boolean canMoveTo(int x, int y).
+This method is part of the Piece class and returns whether or not the piece can move to position (x, y). Explain how
+you would test this method.
+
+1. instantiate a board
+2. create one of each piece on the board (except King which requires its own testing due to check/checkmate positions)
+    a. make sure to test en passant and other pawn moves
+3. test out of bounds on the board, put pieces in the way of each piece (probably with a loop).
+4. test ability to capture, so need both types of pieces
+5. Test check/checkmates. Can the king move into check. Are there moves avaialble when in checkmate formations
