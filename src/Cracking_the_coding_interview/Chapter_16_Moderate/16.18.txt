@@ -1,0 +1,33 @@
+catcatgocatgo
+
+aabab
+
+candidates for a:
+
+a starts with c.
+
+find all locations with c.
+
+0, 3, 8
+so a must but 'cat'
+
+then when we subtract a from the string and divide it by number of bs.
+
+
+Step 1:
+if pattern starts with 'b', swap a and b.
+
+if there are multiple 'as' figure out A
+if there are not multiple as figure out b.
+
+
+once normalized:
+
+
+catcatgocatgo
+
+a = c
+
+[0, 3, 7], if this array is smaller than num_a, return false
+
+try a = c, try a = ca, a = cat
